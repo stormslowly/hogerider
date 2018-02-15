@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> 
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+			<key>cloud_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1,1},{938.6666666666666,268.6666666666667}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{938.6666666666666,268.6666666666667}}</string>
+				<key>sourceSize</key>
+				<string>{938,268}</string>
+			</dict>
+			<key>cloud_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1,271.6666666666667},{832,284}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{832,284}}</string>
+				<key>sourceSize</key>
+				<string>{832,284}</string>
+			</dict>
+			<key>cloud_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1,557.6666666666667},{702.6666666666666,185.33333333333334}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{702.6666666666666,185.33333333333334}}</string>
+				<key>sourceSize</key>
+				<string>{702,185}</string>
+			</dict>
+
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>2</integer>
+            <key>size</key>
+            <string>{940.6666666666666, 744.0000000000001}</string>
+            <key>textureFileName</key>
+            <string>cloud.png</string>
+        </dict>
+    </dict>
+</plist>
