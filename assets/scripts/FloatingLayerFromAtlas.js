@@ -1,43 +1,43 @@
 import FloatLayer from "./FloatingLayer"
 
-
 cc.Class({
     extends: FloatLayer,
 
     properties: {
-        // foo: {
-        //    default: null,      // The default value will be used only when the component attaching
-        //                           to a node for the first time
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
         atlas: {
             default: null,
-            type: cc.SpriteAtlas
+            type: cc.SpriteAtlas,
         },
         itemCount: {
             default: 1,
-            type: cc.Integer
-        }
+            type: cc.Integer,
+        },
     },
 
     // use this for initialization
     onLoad: function () {
         this.spriteFrames = this.atlas.getSpriteFrames()
 
+        const defaultX = -620
 
-        for (let i = 0; i < 4; i++) {
-            const node = new cc.Node
+        for (let i = 0; i < 3; i++) {
+            const node = new cc.Node()
             const sprite = node.addComponent(cc.Sprite)
+            sprite.spriteFrame = this.spriteFrames[0]
             this.node.addChild(node)
-            node.setPosition(-620, 0)
-            this.floatSprites.push(sprite)
+            let x = defaultX
+            if (this.floatSprites.length > 0) {
+                x = Math.max(...this.floatSprites.map(floatSprite => floatSprite.node.position.x))
+            }
+
+            node.position = cc.p(
+                x + this.randomBetween(this.minDistance, this.maxDistance),
+                this.randomBetween(this.minY, this.maxY)
+            )
 
             this.initSprite(sprite)
+
+            this.floatSprites.push(sprite)
         }
     },
 
