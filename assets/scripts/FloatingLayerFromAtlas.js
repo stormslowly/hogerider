@@ -26,18 +26,16 @@ cc.Class({
             sprite.spriteFrame = this.spriteFrames[0]
             this.node.addChild(node)
             let x = defaultX
-            if (this.floatSprites.length > 0) {
-                x = Math.max(...this.floatSprites.map(floatSprite => floatSprite.node.position.x))
+            if (this.floatNodes.length > 0) {
+                x = Math.max(...this.floatNodes.map(floatNode => floatNode.position.x))
             }
 
             node.position = cc.p(
                 x + this.randomBetween(this.minDistance, this.maxDistance),
                 this.randomBetween(this.minY, this.maxY)
             )
-
-            this.initSprite(sprite)
-
-            this.floatSprites.push(sprite)
+            this.initNode(node)
+            this.floatNodes.push(node)
         }
     },
 

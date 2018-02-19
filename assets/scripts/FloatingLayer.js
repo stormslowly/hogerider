@@ -23,67 +23,51 @@ cc.Class({
         minDistance: {
             default: 900
         },
-        floatSprites: {
+        floatNodes: {
             visible: true,
             default: [],
-            type: [cc.Sprite]
+            type: [cc.Node]
         }
     },
 
     // use this for initialization
     onLoad: function () {
-        for (let i = 0; i < this.floatSprites.length; i++) {
-            this.initSprite(this.floatSprites[i])
+        for (let i = 0; i < this.floatNodes.length; i++) {
+            this.initNode(this.floatNodes[i])
+            cc.log(this.floatNodes[i])
         }
     },
 
-    initSprite(sprite) {
-        sprite.originPosition = sprite.node.position.clone()
+    initNode(node) {
+        node.originPosition = node.position.clone()
     },
     // called every frame, uncomment this function to activate update callback
     update: function () {
         const c = this.camera.node.convertToWorldSpaceAR(this.camera.cameraAt)
-        // cc.log(rel)
-        const me = this.node.convertToWorldSpaceAR(this.node.position)
 
-        // const pInNode = this.node.convertToNodeSpace(rel)
+        const me = this.node.convertToWorldSpaceAR(this.node.position)
         const rel = me.sub(c)
 
-        this.floatSprites.forEach(sprite => {
-            sprite.node.x = sprite.originPosition.x + rel.x / this.far
-
-            if (this.parentBox) {
-                const nodeBox = sprite.node.getBoundingBoxToWorld()
-
-                if (!this.parentBox.intersects(nodeBox)) {
-                    cc.log('a box on contain in parent')
-                    cc.log('parent', this.parentBox)
-                    cc.log('spite', nodeBox)
-
-                    const xOfNode = this.floatSprites.map(floatSprite => floatSprite.node.position.x)
-                    const x = Math.round(Math.max(...xOfNode))
-                    sprite.node.position = cc.p(
-                        x + this.randomBetween(this.minDistance, this.maxDistance),
-                        this.randomBetween(this.minY, this.maxY)
-                    )
-                    cc.log(sprite.node.position)
-                    this.initSprite(sprite)
-                }
-            }
+        this.floatNodes.forEach(node => {
+            node.x = node.originPosition.x + rel.x / this.far
         })
-        this.floatSprites.sort((s1, s2) => s1.node.x - s2.node.x)
+        this.floatNodes.sort((s1, s2) => s1.x - s2.x)
 
-
-        const n = this.floatSprites.length
+        const n = this.floatNodes.length
         if (n > 0) {
-            const leftMostSprite = this.floatSprites[0]
-            const rightMostSprite = this.floatSprites[n - 1]
-            const parentBox = this.node.getBoundingBoxToWorld()
+            const leftMostSprite = this.floatNodes[0]
+            const rightMostSprite = this.floatNodes[n - 1]
 
-            const box = leftMostSprite.node.getBoundingBoxToWorld()
+            const contentWidth = leftMostSprite.getContentSize().width
+            const viewWidth = this.node.getContentSize().width
 
-            if (!parentBox.intersects(box)) {
-                cc.log('out bound dectived')
+            if (leftMostSprite.x < -0.5 * (viewWidth + contentWidth)) {
+                const x = rightMostSprite.originPosition.x
+                leftMostSprite.setPosition(cc.p(
+                    x + this.randomBetween(this.minDistance, this.maxDistance),
+                    this.randomBetween(this.minY, this.maxY)
+                ))
+                this.initNode(leftMostSprite)
             }
         }
     },

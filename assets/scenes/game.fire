@@ -256,11 +256,11 @@
     "camera": {
       "__id__": 7
     },
-    "maxY": -180,
+    "maxY": -200,
     "minY": -250,
     "maxDistance": 1200,
-    "minDistance": 900,
-    "floatSprites": [],
+    "minDistance": 500,
+    "floatNodes": [],
     "atlas": {
       "__uuid__": "832e9fbe-db1a-464f-afea-f82ff554e884"
     },
@@ -356,8 +356,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
+      "width": 1280,
+      "height": 720
     },
     "_children": [
       {
@@ -456,7 +456,7 @@
       "__uuid__": "a430e2a4-0034-494b-bb08-5112c64bb3f9"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 2,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -465,7 +465,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
+    "_isTrimmedMode": false,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": null
@@ -534,7 +534,7 @@
       "__uuid__": "a430e2a4-0034-494b-bb08-5112c64bb3f9"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 2,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -543,7 +543,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
+    "_isTrimmedMode": false,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": null
@@ -564,12 +564,12 @@
     "minY": -256,
     "maxDistance": 1280,
     "minDistance": 1280,
-    "floatSprites": [
+    "floatNodes": [
       {
-        "__id__": 11
+        "__id__": 10
       },
       {
-        "__id__": 13
+        "__id__": 12
       }
     ]
   },
@@ -771,7 +771,7 @@
     "minY": 200,
     "maxDistance": 1200,
     "minDistance": 900,
-    "floatSprites": []
+    "floatNodes": []
   },
   {
     "__type__": "cc.Canvas",
