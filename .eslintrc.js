@@ -17,10 +17,13 @@ module.exports = {
         "prefer-destructuring": 0,
         "no-param-reassign": 0,
         "arrow-parens": 0,
-        "no-mixed-operators": 0
+        "no-mixed-operators": 0,
+        "import/prefer-default-export": 0,
+        "no-bitwise": 0
     },
     globals: {
-        cc: true
+        cc: true,
+        cp: true
     }
 
 };

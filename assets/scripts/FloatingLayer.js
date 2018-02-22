@@ -29,15 +29,11 @@ cc.Class({
             type: [cc.Node]
         }
     },
-
-    // use this for initialization
     onLoad: function () {
         for (let i = 0; i < this.floatNodes.length; i++) {
             this.initNode(this.floatNodes[i])
-            cc.log(this.floatNodes[i])
         }
     },
-
     initNode(node) {
         node.originPosition = node.position.clone()
     },
